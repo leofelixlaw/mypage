@@ -518,7 +518,7 @@ img { box-shadow: #fff 0 0 0 }
 
 /* =11. Galleries
 --------------------------------------------------------------------------------------------------------*/
-.full_width_gallery { width: 100%; margin-top: 5px; }
+.full_width_gallery { width: 100%; margin-top: 5px; background-color: #2b2b2b; }
 .centralizer, .col1-3 .centralizer { margin: 0 auto; text-align: center; font-size: 0;}
 .col1-3 .price-table .centralizer { text-align:center }
 .load_more_btn, .button { display: block; color: #2b2b2b; font-style: italic; border: solid 2px #2b2b2b; padding: 9px 15px 10px 15px; margin: 60px auto 34px auto; width: 128px; height: 44px; font-size:14px; }
@@ -4113,9 +4113,10 @@ blockquote { background:url(../images/icons/bg-chat@2x.png) center 50px no-repea
 #nav { display: table-cell !important }
 .full_width_gallery.desktop_items_1 > .gallery_item{ width: 100%; }
 .full_width_gallery.desktop_items_2 > .gallery_item{ width: 50%; }
-.full_width_gallery.desktop_items_3 > .gallery_item{ width: 33.333333%; }
-.full_width_gallery.desktop_items_4 > .gallery_item{ width: 25%; }
+.full_width_gallery.desktop_items_3 > .gallery_item{ width: 33.333333%; border-right: 1px solid rgba(255, 255, 255, 0.26);}
+.full_width_gallery.desktop_items_4 > .gallery_item{ width: 25%; border-right: 1px solid rgba(255, 255, 255, 0.26);}
 #nav-button{ display: none; }
+.gallery_item:last-child{ border-right: 0!important; }
 }
 
 /* Smaller than standard 960 (devices and browsers) */

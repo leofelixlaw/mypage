@@ -20,6 +20,11 @@
 .border-bottom-none{
   border-bottom: 0;
 }
+.sliphoveritem .link{
+  background-size: 30px 30px;
+    margin: 0 auto;
+    filter: invert(1) brightness(100%) sepia(100%) saturate(0%);
+}
 @media only screen and (max-width: 767px) {
   .show-xs {
     display: none;
