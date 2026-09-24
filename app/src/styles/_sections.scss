@@ -1,0 +1,153 @@
+@use 'variables' as *;
+
+/* About */
+.stats {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 48px;
+  @include md { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  &__item { padding: 24px 16px; text-align: center; transition: transform 0.25s, box-shadow 0.25s;
+    &:hover { transform: translateY(-4px); box-shadow: $shadow-lg; } }
+  strong { display: block; font-size: clamp(30px, 4vw, 42px); font-weight: 800; line-height: 1;
+    background: linear-gradient(135deg, $green-700, $green-500); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  span { display: block; margin-top: 8px; font-size: 14px; color: $muted; }
+}
+.about {
+  display: grid; gap: 32px;
+  @include lg { grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: start; }
+  &__text p { font-size: 16.5px; }
+  strong { color: $green-800; }
+}
+.chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
+  li { padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: $green-50; color: $green-800; border: 1px solid $green-100; }
+  .is-hl { background: $green-600; border-color: $green-600; color: $white; }
+}
+.profile-card {
+  padding: 28px; text-align: center;
+  &__avatar { width: 84px; height: 84px; margin: 0 auto 14px; display: grid; place-items: center; border-radius: 50%;
+    background: linear-gradient(135deg, $green-600, $lime); color: $white; font-size: 28px; font-weight: 800; }
+  h3 { margin-bottom: 2px; }
+  dl { margin: 22px 0 0; text-align: left; }
+  dl div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-top: 1px solid $line; font-size: 14px; }
+  dt { color: $muted; }
+  dd { margin: 0; color: $ink; font-weight: 600; text-align: right; word-break: break-word; }
+}
+
+/* Experience */
+.timeline {
+  position: relative; max-width: 880px; margin: 0 auto; padding-left: 26px;
+  &::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient($green-500, $green-100); }
+  &__item { position: relative; margin-bottom: 18px; }
+  &__dot { position: absolute; left: -26px; top: 26px; width: 16px; height: 16px; border-radius: 50%; background: $white; border: 3px solid $green-500; }
+  &__item.is-open &__dot { background: $green-500; box-shadow: 0 0 0 5px $green-100; }
+}
+.job {
+  overflow: hidden; transition: box-shadow 0.25s, border-color 0.25s;
+  .is-open & { border-color: $green-300; box-shadow: $shadow-lg; }
+  &__head {
+    display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; width: 100%; padding: 20px 22px;
+    background: none; border: 0; text-align: left; color: inherit;
+    @include md { grid-template-columns: 170px 1fr auto; align-items: center; }
+    &:hover .job__title strong { color: $green-700; }
+  }
+  &__period { grid-column: 1 / -1; font-size: 13px; font-weight: 700; color: $green-700;
+    @include md { grid-column: auto; } }
+  &__title { display: flex; flex-direction: column;
+    strong { font-size: 18px; color: $ink; transition: color 0.2s; }
+    span { font-size: 14px; color: $muted; } }
+  &__chevron { width: 30px; height: 30px; border-radius: 50%; background: $green-50; position: relative; align-self: center;
+    &::after { content: ''; position: absolute; left: 50%; top: 45%; width: 8px; height: 8px; border-right: 2px solid $green-700; border-bottom: 2px solid $green-700;
+      transform: translate(-50%, -50%) rotate(45deg); transition: transform 0.25s; }
+    .is-open &::after { transform: translate(-50%, -20%) rotate(-135deg); } }
+  &__body { padding: 0 22px 22px; animation: open 0.35s ease;
+    @include md { padding-left: 208px; } }
+  &__role { margin-top: 18px;
+    h4 { font-size: 15px; color: $green-800; small { font-weight: 500; color: $muted; margin-left: 6px; } } }
+}
+.bullets li { position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 15px;
+  &::before { content: ''; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: $green-500; transform: rotate(45deg); } }
+@keyframes open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* Tech stack */
+.filters {
+  display: flex; gap: 8px; margin: -16px 0 36px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none;
+  @include md { flex-wrap: wrap; justify-content: center; overflow: visible; }
+  button { flex: none; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04); color: #cbd5e1; font-size: 14px; font-weight: 600; transition: all 0.2s;
+    &:hover { border-color: $green-300; color: $white; }
+    &.is-active { background: $lime; border-color: $lime; color: $green-950; } }
+}
+.tech-group { margin-bottom: 34px;
+  h3 { font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: $green-300 !important; margin-bottom: 14px; } }
+.tech-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  @include md { grid-template-columns: repeat(5, 1fr); }
+  @include lg { grid-template-columns: repeat(7, 1fr); }
+}
+.tech-tile {
+  display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 8px; height: 100%;
+  border-radius: $radius-sm; background: rgba(255, 255, 255, 0.96); border: 1px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  img { width: 40px; height: 40px; object-fit: contain; }
+  span { font-size: 13px; font-weight: 600; color: $ink; text-align: center; line-height: 1.25; }
+  &:hover { transform: translateY(-4px); border-color: $green-500; box-shadow: 0 10px 24px rgba(16, 185, 129, 0.35); }
+}
+
+/* Skills */
+.skills { display: grid; gap: 28px; @include lg { grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: start; } }
+.bars li { margin-bottom: 20px; }
+.bars__label { display: flex; justify-content: space-between; font-weight: 600; color: $ink; font-size: 15px; margin-bottom: 8px;
+  span:last-child { color: $green-700; } }
+.bars__track { height: 10px; border-radius: 999px; background: $green-50; overflow: hidden; }
+.bars__fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, $green-600, $lime); transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.langs { padding: 26px;
+  li { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid $line; font-size: 15px; }
+  strong { color: $ink; } span { color: $muted; } }
+
+/* Education */
+.edu { display: grid; gap: 18px; max-width: 880px; margin: 0 auto; @include md { grid-template-columns: 1fr 1fr; } }
+.edu__item { display: flex; gap: 16px; align-items: center; padding: 22px;
+  h3 { font-size: 17px; margin-bottom: 4px; } p { margin: 0; font-size: 14px; } }
+.edu__icon { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: $green-50; font-size: 24px; }
+
+/* Portfolio */
+.works { display: grid; gap: 16px; grid-template-columns: 1fr;
+  @media (min-width: 520px) { grid-template-columns: 1fr 1fr; }
+  @include lg { grid-template-columns: repeat(4, 1fr); } }
+.work {
+  position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: $radius; box-shadow: $shadow;
+  img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  &__overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; padding: 18px;
+    background: linear-gradient(180deg, transparent 35%, rgba(2, 44, 34, 0.92)); color: $white;
+    strong { font-size: 17px; } }
+  &__tag { align-self: flex-start; padding: 3px 10px; margin-bottom: 6px; border-radius: 999px; background: rgba(163, 230, 53, 0.9); color: $green-950; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  &__link { font-size: 13px; color: $green-300; max-height: 0; opacity: 0; transition: all 0.3s; }
+  &:hover img, &:focus-visible img { transform: scale(1.06); }
+  &:hover &__link, &:focus-visible &__link { max-height: 24px; opacity: 1; }
+}
+
+/* Contact */
+.contact { display: grid; gap: 20px; @include lg { grid-template-columns: 1.3fr 1fr; } }
+.contact__main { padding: 32px; background: linear-gradient(135deg, $white 60%, $green-50);
+  h3 { font-size: 24px; } }
+.contact__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.contact__info { padding: 28px; display: grid; gap: 18px;
+  .label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: $muted; margin-bottom: 4px; }
+  a { font-weight: 600; word-break: break-word; } }
+
+.socials { display: flex; gap: 10px;
+  a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: $green-50; transition: all 0.2s;
+    &:hover { background: $green-600; transform: translateY(-2px); .socials__icon { background: $white; } } }
+  &__icon { width: 18px; height: 18px; background: $green-800; -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+  &--light a { background: rgba(255, 255, 255, 0.08); }
+  &--light &__icon { background: #d1fae5; }
+}
+
+/* Footer */
+.site-footer { background: $green-950; color: #94a3b8; font-size: 14px;
+  &__inner { display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: space-between; padding-top: 28px; padding-bottom: 28px;
+    @include md { flex-direction: row; } p { margin: 0; } } }
+.to-top { position: fixed; right: 18px; bottom: 18px; z-index: 40; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+  background: $green-600; color: $white; font-size: 20px; font-weight: 700; box-shadow: 0 10px 24px rgba(5, 150, 105, 0.4);
+  opacity: 0; pointer-events: none; transform: translateY(10px); transition: all 0.3s;
+  &.is-visible { opacity: 1; pointer-events: auto; transform: none; }
+  &:hover { color: $white; background: $green-700; } }
