@@ -88,6 +88,7 @@
   border-radius: $radius-sm; background: rgba(255, 255, 255, 0.96); border: 1px solid transparent;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   img { width: 40px; height: 40px; object-fit: contain; }
+  &__mono { width: 40px; height: 40px; background: var(--color); -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
   span { font-size: 13px; font-weight: 600; color: $ink; text-align: center; line-height: 1.25; }
   &:hover { transform: translateY(-4px); border-color: $green-500; box-shadow: 0 10px 24px rgba(16, 185, 129, 0.35); }
 }

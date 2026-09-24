@@ -23,7 +23,9 @@ export default function TechStack() {
             {group.items.map((t) => (
               <li key={t.name}>
                 <a href={t.url} target="_blank" rel="noopener noreferrer" className="tech-tile" title={t.name}>
-                  <img src={t.icon} alt="" loading="lazy" width="40" height="40" />
+                  {t.color
+                    ? <span className="tech-tile__mono" style={{ '--icon': `url(${t.icon})`, '--color': t.color }} aria-hidden="true" />
+                    : <img src={t.icon} alt="" loading="lazy" width="40" height="40" />}
                   <span>{t.name}</span>
                 </a>
               </li>

@@ -1,5 +1,6 @@
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 const dev = (name, variant = 'original') => `${DEVICON}/${name}/${name}-${variant}.svg`;
+const simple = (name) => `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${name}.svg`;
 const local = (file) => `${import.meta.env.BASE_URL}images/${file}`;
 
 export const CAREER_START = 2014;
@@ -32,7 +33,7 @@ export const stats = [
   { value: '30%', label: 'Lower initial load time' },
 ];
 
-export const highlights = ['Angular 19+', 'React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'SCSS', 'RxJS', 'NgRx', 'Redux', 'REST APIs', 'Design Systems', 'Figma'];
+export const highlights = ['Angular 19+', 'React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'SCSS', 'RxJS', 'NgRx', 'Redux', 'REST APIs', 'Design Systems', 'Figma', 'Cursor AI', 'Claude AI'];
 
 export const experience = [
   {
@@ -124,6 +125,7 @@ export const skillBars = [
   { name: 'HTML5 / SCSS', level: 95 },
   { name: 'TypeScript / JavaScript', level: 90 },
   { name: 'UI/UX Design', level: 82 },
+  { name: 'AI-Assisted Development (Cursor, Claude)', level: 88 },
 ];
 
 export const languages = [
@@ -142,6 +144,14 @@ export const techGroups = [
       { name: 'Nuxt', icon: dev('nuxtjs'), url: 'https://nuxt.com/' },
       { name: 'jQuery', icon: dev('jquery'), url: 'https://jquery.com/' },
       { name: 'Bootstrap', icon: dev('bootstrap'), url: 'https://getbootstrap.com/' },
+    ],
+  },
+  {
+    name: 'AI-Assisted Development',
+    items: [
+      { name: 'Claude AI', icon: simple('claude'), color: '#D97757', url: 'https://claude.ai/' },
+      { name: 'Claude Code', icon: simple('claude'), color: '#D97757', url: 'https://www.anthropic.com/claude-code' },
+      { name: 'Cursor AI', icon: simple('cursor'), color: '#111827', url: 'https://cursor.com/' },
     ],
   },
   {

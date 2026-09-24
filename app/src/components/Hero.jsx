@@ -28,6 +28,8 @@ export default function Hero() {
           <p className="hero__lead">
             {years}+ years crafting fast, accessible and beautiful web apps with{' '}
             <span key={word} className="hero__word">{word}</span>
+            <br />
+            <span className="hero__ai">✨ Supercharged with AI: Cursor &amp; Claude</span>
           </p>
           <div className="hero__actions">
             <a href="#experience" className="btn btn--primary">View experience</a>
@@ -49,6 +51,7 @@ export default function Hero() {
 {'  '}experience: <span className="s">'{years}+ years'</span>,{'\n'}
 {'  '}stack: [<span className="s">'Angular'</span>, <span className="s">'React'</span>, <span className="s">'Vue.js'</span>],{'\n'}
 {'  '}styling: [<span className="s">'SCSS'</span>, <span className="s">'Design Systems'</span>],{'\n'}
+{'  '}aiTools: [<span className="s">'Cursor'</span>, <span className="s">'Claude'</span>],{'\n'}
 {'  '}location: <span className="s">'Trichy, India'</span>,{'\n'}
 {'  '}openToWork: <span className="b">true</span>,{'\n'}
 {'}'};
