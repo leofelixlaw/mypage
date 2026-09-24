@@ -23,6 +23,18 @@ $( document ).ready(function() {
 	});
 
 		
+	// animate skill circles once they scroll into view
+	if ('IntersectionObserver' in window) {
+		var skillObserver = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					$(entry.target).find('.pie_progress').asPieProgress('start');
+					skillObserver.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.4 });
+		$('.service_box').each(function() { skillObserver.observe(this); });
+	}
 	$(".service_item").hover(function(){
 		$(this).children('.pie_progress').asPieProgress('start');
   });
